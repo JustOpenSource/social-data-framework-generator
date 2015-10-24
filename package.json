@@ -1,0 +1,28 @@
+{
+  "name": "social-data-framework-generator",
+  "version": "0.0.1",
+  "description": "Generates a social-data-framework instance.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "troythewolfe",
+  "license": "MIT",
+  "preferGlobal": true,
+  "dependencies" : {
+        "minimist" : "1.2.0",
+        "mkdirp" : "*",
+        "prompt" : "*",
+        "underscore" : "*"
+    },
+  "bin": {
+    "sdfg-new": "bin/social-data-framework-generator/new.js",
+    "sdfg-validate": "bin/social-data-framework-generator/validate.js",
+    "sdfg-build": "bin/social-data-framework-generator/build.js",
+    "sdfg-register": "bin/social-data-framework-generator/register.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JustOpenSource/social-data-framework-generator.git"
+  },
+  "homepage": "https://github.com/JustOpenSource/fatalshootings"
+}
