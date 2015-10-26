@@ -1,0 +1,19 @@
+{
+    
+    "id": "sort-type.1",
+
+    "type": "object",
+    
+    "properties": {
+        
+        "value" : {
+            
+            "type" : {
+            
+                "enum" : [ "ascending", "descending" ]
+            },
+
+            "description" : "Possible sort types."
+        }
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "id": "document-state.1",
+
+    "type": "object",
+    
+    "properties": {
+        
+        "value" : {
+            
+            "type" : {
+                
+                "enum" : [ "new", "pending", "publish" ]
+            },
+
+            "description" : "The possible states a document can be in."
+        }
+    }
+}

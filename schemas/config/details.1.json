@@ -1,0 +1,66 @@
+{
+    "id": "details.1",
+    
+    "type": "object",
+
+    "properties": {
+
+        "sections" : {
+            
+            "type" : "array",
+
+            "description" : "Arrary of sections.",
+            
+            "items" : {
+                
+                "type" : "object",
+
+                "description" : "A section of the document.",
+                
+                "properties" : {
+                    
+                    "name" : {
+                        
+                        "type" : "string",
+                        
+                        "description" : "Section identifier, used by lang files, logging, etc"
+                    
+                    },
+
+                    "fields" : {
+                        
+                        "type" : "array",
+
+                        "description" : "Ordered list of fields contained in this section.",
+                        
+                        "items" : {
+
+                            "type" : { "$ref" : "core/schema-field.1" },
+
+                            "description" : "The schema field that is used in this section."
+                        
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*
+EXAMPLE
+{
+    "sections" : [{
+        
+        "name" : "first-section",
+        
+        "fields" : [{
+            "value" : "path.to.schema.value"
+        },{
+            "value" : "path.to.schema.value"
+        },{
+            "value" : "path.to.schema.value"
+        }]
+    }]
+}
+*/

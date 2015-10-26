@@ -1,0 +1,42 @@
+{
+
+    "id": "user-role-feature-set.1",
+
+    "type": "object",
+    
+    "properties": {
+        
+        "role" : {
+            
+            "type" : { "$ref" : "user-roles.1" },
+
+        },
+
+        "features" : {
+
+            "type" : "array",
+
+            "description" : "An array of features that apply to this user role.",
+            
+            "items" : { 
+
+                "type" : { "$ref" : "feature-generic.1" }
+
+            }
+
+        },
+
+        "features-document-state" : {
+
+            "type" : "array",
+
+            "description" : "An array of feature-document-states that apply to this user role.",
+
+            "items" : {
+                
+                "type" : { "$ref" : "feature-document-state.1" }
+            
+            }
+        }
+    }
+}

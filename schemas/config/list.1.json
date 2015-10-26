@@ -1,0 +1,81 @@
+{
+
+    "id": "details.1",
+    
+    "type": "object",
+
+    "properties": {
+
+        "per-page-default" : {
+
+            "type" : {
+
+                "enum" : [ 1, 10, 20, 50, 100, 500 ]
+            
+            },
+
+            "description" : "Default number of entries to show per page"
+        },
+
+        "fields" : {
+
+            "type" : "array",
+
+            "description" : "Ordered list of fields that will appear in the list",
+
+            "items" : {
+
+                "type" : "object",
+
+                "properties" : {
+
+                    "field" : {
+
+                        "type" : { "$ref" : "core/schema-field.1" },
+
+                        "description" : ""
+                    },
+
+                    "size" : {
+                        
+                        "enum" : [ "extra-small", "small", "medium", "large", "extra-large" ],
+
+                        "description" : ""
+
+                    },
+
+                    "link-to-details" : {
+
+                        "type" : "boolean",
+
+                        "description" : ""
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*
+EXAMPLE
+{
+
+    "per-page-default" : 10,
+
+    "fields" : [{
+        
+        "field" : "path.to.schema.field",
+
+        "size" : "large",
+
+        "link-to-details" : true
+    
+    },{
+        
+        "field" : "other.path.to.schema.field",
+
+        "size" : "medium"
+    
+    }]
+}
+*/

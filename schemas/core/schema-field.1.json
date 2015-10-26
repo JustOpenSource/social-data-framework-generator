@@ -1,0 +1,17 @@
+{
+    "id": "schema-field.1",
+
+    "type": "object",
+    
+    "properties": {
+        
+        "value" : {
+            
+            "type" : "string",
+            
+            "description" : "Path to a schema field.",
+            
+            "pattern": ""
+        }
+    }
+}

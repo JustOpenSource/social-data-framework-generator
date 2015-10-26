@@ -1,0 +1,123 @@
+{
+
+    "id": "admins.1",
+    
+    "type": "object",
+
+    "properties" : {
+
+        "users" : {
+
+            "type" : "array",
+
+            "description" : "List of default users",
+
+            "items" : {
+
+                "type" : {
+                
+                    "$ref" : "user.1"
+                }
+            }
+        },
+
+        "role-features" : {
+            
+            "type" : "array",
+
+            "items" : {
+
+                "type" : {
+                
+                    "$ref" : "user-role-feature-set.1"
+                }
+            }
+        }
+    }
+}
+
+/*
+EXAMPLE
+
+{
+    "users" : [
+
+        {
+            
+            "username" : "admin@bar.com",
+
+            "id-system" : "openid.bar",
+
+            "roles" : [
+                
+                {
+                    "value" : "admin"
+
+                }
+            ]
+
+        }, {
+            
+            "username" : "foo@bar.com",
+
+            "id-system" : "openid.bar",
+
+            "roles" : [
+
+                {
+                    "value" : "editor"
+
+                }
+            ]
+        }
+    ],
+
+    "role-features" : [
+
+        {
+            "role" : "public",
+
+            "features" : [
+
+                {
+                    "value" : "SUGGESTIONS_REVIEW",
+
+                }, {
+                    
+                    "value" : "SUGGESTIONS_PUBLISH",
+                
+                }
+            ]
+
+        }, {
+
+            "role" : "admin",
+
+            "features" : [
+
+                {
+
+                    "type" : "generic",
+
+                    "value" : "SUGGESTIONS_REVIEW",
+
+                }, {
+
+                    "value" : "SUGGESTIONS_PUBLISH",
+
+                }, {
+
+                    "type" : "change-document-state",
+
+                    "start-state" : "new",
+
+                    "end-state" : "pending"
+
+                }
+
+            ]
+
+        }
+    ]
+}
+*/

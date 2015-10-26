@@ -1,0 +1,19 @@
+{
+    
+    "id": "user-role.1",
+
+    "type": "object",
+    
+    "properties": {
+        
+        "value" : {
+            
+            "type" : {
+                
+                "enum" : [ "admin", "editor", "researcher", "public" ]
+            },
+
+            "description" : "Ordered list of possilbe roles for a user within the system.  If there is a conflict, the earlier role is chosen."
+        }
+    }
+}

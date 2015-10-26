@@ -1,4 +1,5 @@
 #! /usr/bin/env node
+
 var _ = require('underscore');
 var fs = require('fs');
 var mkdirp = require('mkdirp');
@@ -19,13 +20,12 @@ var DIR_STRUCTURE = {
     "config" : [
 
         //TODO: on validator, check to make sure a field only appears once
-
         {
             "name" : "users",
             "type" : "json",
             "content" : {
                 "users" : [{
-                    "username" : "", //unique identifier
+                    "username" : "", //uniqu
                     "id-system" : "openid", //system that id belongs to
                     "role" : "admin" // roles have access to different parts of the workflows (admin, editor, researcher)
                 }]
@@ -52,7 +52,7 @@ var DIR_STRUCTURE = {
             "content" : {
                 
                 "required" : [{
-                    "document-state" : "new", //state change (new, suggest, pending, publish),
+                    "document-state" : "new", //state change (new, pending, publish),
                     "required" : [""] //schema path to value
                 }],
                 
@@ -69,8 +69,9 @@ var DIR_STRUCTURE = {
         {
             "name" : "list",
             "type" : "json",
-            "per-page" : 10, //default number of entries to show per page by default (1, 5, 10, 20, 50, 100, 500, all)
+            
             "content" : {
+                "per-page" : 10, //default number of entries to show per page by default (1, 5, 10, 20, 50, 100, 500, all)
                 "fields" : [{
                     "field" : "", //schema path to value
                     "size" : "", //size of cell (extra-small, small, medium, large, extra-large),
@@ -82,7 +83,7 @@ var DIR_STRUCTURE = {
         {
             "name" : "list-filters",
             "type" : "json",
-            "content" :{
+            "content" : {
                 "sort-by" : [""], //fields to allow sorting by
                 "default-sort-by" : "",
                 "filters" : [{
@@ -217,10 +218,13 @@ prompt.get([USER_NAME, PROJECT_DIR, SCHEMA_NAME, SCHEMA_DESC], function (err, re
         console.log('Using an existing schema is sometimes the best choice.');
         console.log('For more information about creating a schema, type:');
         console.log('$ sdfg-help schemas');
+
     } else {
+        
         console.log('Schema "' + result[SCHEMA_NAME] + '"" exists');
         console.log('To see the schema, type:');
         console.log('$ sdfg-schemas THE_SCHEMA_NAME');
+    
     }
 
     console.log('');
