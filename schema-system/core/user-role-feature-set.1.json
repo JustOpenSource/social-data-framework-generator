@@ -1,0 +1,35 @@
+{
+
+    "id": "/core/user-role-feature-set.1",
+
+    "type": "object",
+
+    "description" : "Assigns a list of features to a user role.",
+
+    "additionalProperties" : false,
+    
+    "properties": {
+        
+        "role" : { "$ref" : "user-role.1" },
+
+        "features-generic" : {
+
+            "type" : "array",
+
+            "description" : "An array of features that apply to this user role.",
+            
+            "items" : { "$ref" : "/core/feature-generic.1" }
+
+        },
+
+        "features-document-state" : {
+
+            "type" : "array",
+
+            "description" : "An array of features that apply to this user role.",
+            
+            "items" :  { "$ref" : "/core/feature-document-state.1" }
+        
+        }
+    }
+}

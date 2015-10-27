@@ -1,0 +1,31 @@
+{
+
+    "id": "/config/system.1",
+    
+    "type": "object",
+
+    "description" : "Config for root system.",
+
+    "additionalProperties" : false,
+
+    "properties" : {
+
+        "users" : {
+
+            "type" : "array",
+
+            "description" : "List of users within the system",
+
+            "items" : { "$ref" : "/core/user.1" }
+        },
+
+        "role-features" : {
+            
+            "type" : "array",
+
+            "description" : "A list of which roles get which features in the system.",
+
+            "items" : { "$ref" : "/core/user-role-feature-set.1" }
+        }
+    }
+}

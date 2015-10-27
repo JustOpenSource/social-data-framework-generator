@@ -1,0 +1,12 @@
+{
+
+    "username" : "foo",
+
+    "id-system" : "OPENID",
+
+    "roles" : [
+
+        { "value" : "ADMIN" }
+
+    ]
+}

@@ -1,0 +1,36 @@
+{
+
+    "required-document-state-default" : [
+        
+        {
+
+            "document-state" : { "value" : "NEW" },
+
+            "fields" : [
+                
+                { "value" : "some.schema.field" },
+
+                { "value" : "some.schema.field" }
+            
+            ]
+        }
+    ],
+
+    "required-user-role-override" : [
+
+        {
+
+            "user-role" : { "value" : "EDITOR" },
+
+            "document-state" : { "value" : "NEW" },
+
+            "fields" : [
+                
+                { "value" : "some.schema.field" },
+
+                { "value" : "some.schema.field" }
+            
+            ]
+        }
+    ]
+}

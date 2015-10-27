@@ -1,0 +1,26 @@
+{
+
+    "per-page-default" : 10,
+
+    "fields" : [
+
+        {
+
+            "field" : { "value" : "path.to.schema.field" },
+
+            "size" : "SMALL",
+
+            "link-to-details" : true
+
+        },
+
+        {
+
+            "field" : { "value" : "other.path.to.schema.field" },
+
+            "size" : "MEDIUM"
+
+        }
+
+    ]
+}
