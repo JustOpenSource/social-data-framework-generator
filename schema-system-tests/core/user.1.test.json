@@ -2,7 +2,7 @@
 
     "username" : "foo",
 
-    "id-system" : "OPENID",
+    "id_system" : "OPENID",
 
     "roles" : [
 

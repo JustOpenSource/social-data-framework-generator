@@ -1,10 +1,10 @@
 {
 
-    "required-document-state-default" : [
+    "required_document_state_default" : [
         
         {
 
-            "document-state" : { "value" : "NEW" },
+            "document_state" : { "value" : "NEW" },
 
             "fields" : [
                 
@@ -16,13 +16,13 @@
         }
     ],
 
-    "required-user-role-override" : [
+    "required_user_role_override" : [
 
         {
 
-            "user-role" : { "value" : "EDITOR" },
+            "user_role" : { "value" : "EDITOR" },
 
-            "document-state" : { "value" : "NEW" },
+            "document_state" : { "value" : "NEW" },
 
             "fields" : [
                 

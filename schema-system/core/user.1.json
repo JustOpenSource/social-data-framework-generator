@@ -18,7 +18,7 @@
 
         },
 
-        "id-system" : {
+        "id_system" : {
 
             "enum" : [ "OPENID", "GMAIL" ],
 
@@ -32,7 +32,7 @@
 
             "description" : "List of roles that apply to this user.",
 
-            "items" : { "$ref" : "/core/user-role.1" }
+            "items" : { "$ref" : "/core/user_role.1" }
         }
     }
 }

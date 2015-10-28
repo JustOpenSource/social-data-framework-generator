@@ -1,6 +1,6 @@
 {
 
-    "sort-by-options" : [
+    "sort_by_options" : [
 
         { "value" : "some.schema.path" },
 
@@ -10,9 +10,9 @@
 
     ],
 
-    "sort-by-default" : {
+    "sort_by_default" : {
 
-        "sort-type" : "ASCENDING",
+        "sort_type" : "ASCENDING",
 
         "field" : { "value" : "some.schema.path" }
 

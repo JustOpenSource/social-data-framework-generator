@@ -8,9 +8,11 @@
 
     "additionalProperties" : false,
 
+    "required" : [ "fields", "per_page_default" ],
+
     "properties": {
 
-        "per-page-default" : {
+        "per_page_default" : {
 
             "enum" : [ 1, 10, 20, 50, 100, 500 ],
 
@@ -30,11 +32,13 @@
 
                 "additionalProperties" : false,
 
+                "required" : [ "field", "size" ],
+
                 "properties" : {
 
                     "field" : {
 
-                        "type" : { "$ref" : "/core/schema-field.1" },
+                        "type" : { "$ref" : "/core/schema_field.1" },
 
                         "description" : "The schema field that will appear in the list."
 
@@ -48,7 +52,7 @@
                     
                     },
 
-                    "link-to-details" : {
+                    "link_to_details" : {
 
                         "type" : "boolean",
 

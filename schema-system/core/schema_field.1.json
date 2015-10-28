@@ -1,5 +1,5 @@
 {
-    "id": "/core/schema-field.1",
+    "id": "/core/schema_field.1",
 
     "type": "object",
 
@@ -11,9 +11,7 @@
         
         "value" : {
             
-            "type" : "string",
-            
-            "pattern": ""
+            "type" : "string"
             
         }
     }

@@ -4,7 +4,7 @@
 
         {
 
-            "name" : "section-one",
+            "name" : "section_one",
 
             "fields" : [
 
@@ -16,7 +16,7 @@
 
         }, {
 
-            "name" : "section-two",
+            "name" : "section_two",
 
             "fields" : [
 

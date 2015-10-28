@@ -1,6 +1,6 @@
 {
     
-    "id": "/config/list-filters.1",
+    "id": "/config/list_filters.1",
     
     "type": "object",
 
@@ -8,9 +8,11 @@
 
     "additionalProperties" : false,
 
+    "required" : [ "sort_by_default" ],
+
     "properties": {
 
-        "sort-by-options" : {
+        "sort_by_options" : {
                 
             "type" : "array",
 
@@ -18,12 +20,12 @@
             
             "items" : {
                 
-                "type" : { "$ref" : "/core/schema-field.1" }
+                "type" : { "$ref" : "/core/schema_field.1" }
 
             }
         },
 
-        "sort-by-default" : {
+        "sort_by_default" : {
             
             "type" : "object",
 
@@ -33,7 +35,7 @@
 
             "properties" : {
                 
-                "sort-type" : {
+                "sort_type" : {
 
                     "enum" : [ "ASCENDING", "DESCENDING" ],
 
@@ -41,7 +43,7 @@
 
                 },
 
-                "field" : { "$ref" : "/core/schema-field.1" }
+                "field" : { "$ref" : "/core/schema_field.1" }
             }
         },
 
@@ -49,7 +51,7 @@
             
             "type" : "array",
 
-            "items" : { "$ref" : "/core/schema-field.1" }
+            "items" : { "$ref" : "/core/schema_field.1" }
         }
     }
 }

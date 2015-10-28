@@ -6,7 +6,7 @@
             
             "username" : "test@gmail.com",
 
-            "id-system" : "OPENID",
+            "id_system" : "OPENID",
 
             "roles" : [
                 
@@ -18,7 +18,7 @@
 
             "username" : "test@bar.com",
 
-            "id-system" : "GMAIL",
+            "id_system" : "GMAIL",
 
             "roles" : [
 
@@ -28,12 +28,12 @@
         }
     ],
 
-    "role-features" : [
+    "role_features" : [
 
         {
             "role" : { "value" : "PUBLIC" },
 
-            "features-generic" : [
+            "features_generic" : [
 
                 { "value" : "PUBLISH_SUGGESTIONS" }, 
 
@@ -45,19 +45,19 @@
 
             "role" : { "value" : "EDITOR" },
 
-            "features-document-state" : [
+            "features_document_state" : [
 
                 {
 
-                    "start-state" : { "value" : "PENDING" },
+                    "start_state" : { "value" : "REVIEWED" },
 
-                    "end-state" : { "value" : "PUBLISHED" }
+                    "end_state" : { "value" : "PUBLISHED" }
 
                 }, {
 
-                    "start-state" : { "value" : "NEW" },
+                    "start_state" : { "value" : "NEW" },
 
-                    "end-state" : { "value" : "PENDING" }
+                    "end_state" : { "value" : "REVIEWED" }
 
                 }
 
@@ -67,13 +67,13 @@
 
             "role" : { "value" : "RESEARCHER" },
 
-            "features-document-state" : [
+            "features_document_state" : [
 
                 {
 
-                    "start-state" : { "value" : "NEW" },
+                    "start_state" : { "value" : "NEW" },
 
-                    "end-state" : { "value" : "PENDING" }
+                    "end_state" : { "value" : "REVIEWED" }
 
                 }
 

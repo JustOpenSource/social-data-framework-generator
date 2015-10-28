@@ -1,7 +1,0 @@
-{
-
-    "start-state" : { "value" : "NEW" },
-
-    "end-state" : { "value" : "PENDING" }
-
-}

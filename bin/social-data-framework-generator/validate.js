@@ -7,26 +7,32 @@ var dirname = process.cwd();
 var Validator = require('jsonschema').Validator;
 var v = new Validator();
 
+/*********************
+RUN SYSTEM SCHEMA TESTS
+*/
+
+require(__dirname + '/../../utils/test_system_schemas')();
+
 var schemaJSON;
 
 function setSchema(name){
     v.addSchema(require(__dirname + '/../../schema-system' + name), name);
 }
 
-setSchema('/core/document-state.1');
-setSchema('/core/feature-document-state.1');
-setSchema('/core/feature-generic.1');
-setSchema('/core/schema-field.1');
-setSchema('/core/user-role-feature-set.1');
-setSchema('/core/user-role.1');
+setSchema('/core/document_state.1');
+setSchema('/core/feature_document_state.1');
+setSchema('/core/feature_generic.1');
+setSchema('/core/schema_field.1');
+setSchema('/core/user_role_feature_set.1');
+setSchema('/core/user_role.1');
 setSchema('/core/user.1');
 
-setSchema('/config/details-edit.1');
+setSchema('/config/details_edit.1');
 setSchema('/config/details.1');
 setSchema('/config/infographics.1');
-setSchema('/config/list-filters.1');
+setSchema('/config/list_filters.1');
 setSchema('/config/list.1');
-setSchema('/config/public-api.1');
+setSchema('/config/public_api.1');
 setSchema('/config/system.1');
 
 /*********************
@@ -40,7 +46,7 @@ if(argv.h){
 
 //TODO: Make this a shared function in utils
 function printHelp(){
-    console.log('\nhelp is on the way, exiting.\n');
+    console.log('help is on the way, exiting.');
 
     process.exit();
 }
@@ -76,8 +82,10 @@ try {
 
 } catch(err){
     
-    console.log(err + '\n');
+    
     console.log(' - FAIL: Fix json errors in schema.json and try again.\n');
+    console.log(' - ' + err + '\n');
+    console.log(' - Try http://jsonlint.com/ to validate json\n');
 
     process.exit();
 
@@ -119,19 +127,18 @@ function validateConfig(schema){
 
     schemaDir = dirname + '/' + argv.d + '/' + schema;
 
-    console.log('validating config: ' + schema + '\n');
+    console.log('validating config ' + schemaDir + '\n');
 
     try {
     
         schemaJSON = require(schemaDir);
 
-        console.log(' - SUCCESS: ' + schemaDir + ' is valid json\n');
+        console.log(' - SUCCESS: ' + schema + ' is valid json\n');
 
     } catch(err){
         
-        console.log(err);
-        console.log('');
-        console.log(' - FAIL: Fix json errors in ' + schemaDir + '\n');
+        console.log(' - FAIL: Fix json errors in ' + schema + '\n');
+        console.log(' - ' + err + '\n');
         console.log(' - Try http://jsonlint.com/ to validate json\n');
 
         process.exit();
@@ -142,7 +149,7 @@ function validateConfig(schema){
 
     if(validation_results.errors.length === 0){
 
-        console.log(' - SUCCESS: ' + schemaDir + ' is a valid config.\n');
+        console.log(' - SUCCESS: ' + schema + ' is a valid config schema\n');
 
     } else {
 
@@ -151,7 +158,7 @@ function validateConfig(schema){
             "errors" : validation_results.errors
         });
 
-        console.log(' - FAIL: Fix schema errors in ' + schemaDir + ' and try again.\n');
+        console.log(' - FAIL: Fix schema errors in ' + schema + ' and try again.\n');
 
         console.log(JSON.stringify( validation_results.errors, null, 4) + '\n');
 
@@ -162,12 +169,12 @@ function validateConfig(schema){
     }
 }
 
-validateConfig('config/details-edit');
+validateConfig('config/details_edit');
 validateConfig('config/details');
 validateConfig('config/infographics');
-validateConfig('config/list-filters');
+validateConfig('config/list_filters');
 validateConfig('config/list');
-validateConfig('config/public-api');
+validateConfig('config/public_api');
 validateConfig('config/system');
 
 console.log('\n...\n\nSUCCESS: All configs are valid\n');

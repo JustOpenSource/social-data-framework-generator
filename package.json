@@ -20,16 +20,19 @@
         "underscore" : "*",
         "jsonschema" : "1.0.2",
         "jsonlint" : "1.6.2",
-        "jsen" : "0.6.0"
+        "jsen" : "0.6.0",
+        "json-from-schema" : "1.10.0",
+        "social-data-framework" : "0.0.1"
 
     },
 
     "bin": {
 
-        "sdfg-new": "bin/social-data-framework-generator/new.js",
-        "sdfg-validate": "bin/social-data-framework-generator/validate.js",
-        "sdfg-build": "bin/social-data-framework-generator/build.js",
-        "sdfg-register": "bin/social-data-framework-generator/register.js"
+        "sdf-new": "bin/social-data-framework-generator/new.js",
+        "sdf-data": "bin/social-data-framework-generator/data.js",
+        "sdf-validate": "bin/social-data-framework-generator/validate.js",
+        "sdf-build": "bin/social-data-framework-generator/build.js",
+        "sdf-register": "bin/social-data-framework-generator/register.js"
 
     },
 

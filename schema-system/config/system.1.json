@@ -8,6 +8,8 @@
 
     "additionalProperties" : false,
 
+    "required" : [ "users", "role_features" ],
+
     "properties" : {
 
         "users" : {
@@ -19,13 +21,13 @@
             "items" : { "$ref" : "/core/user.1" }
         },
 
-        "role-features" : {
+        "role_features" : {
             
             "type" : "array",
 
             "description" : "A list of which roles get which features in the system.",
 
-            "items" : { "$ref" : "/core/user-role-feature-set.1" }
+            "items" : { "$ref" : "/core/user_role_feature_set.1" }
         }
     }
 }

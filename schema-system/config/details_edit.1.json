@@ -1,6 +1,6 @@
 {
     
-    "id": "/config/details-edit.1",
+    "id": "/config/details_edit.1",
 
     "type" : "object",
     
@@ -10,7 +10,7 @@
 
     "properties": {
 
-        "required-document-state-default" : {
+        "required_document_state_default" : {
 
             "type": "array",
 
@@ -32,19 +32,19 @@
 
                         "description" : "Array of schema fields that are required by default.",
 
-                        "items" : { "$ref" : "/core/schema-field.1" }
+                        "items" : { "$ref" : "/core/schema_field.1" }
                     },
 
-                    "document-state" : { "$ref" : "/core/document-state.1" }
+                    "document_state" : { "$ref" : "/core/document_state.1" }
                 }
             }
         },
 
-        "required-user-role-override" : {
+        "required_user_role_override" : {
 
             "type": "array",
 
-            "description" : "Array of objects that link a document state to a set of required fields, with the addition of a user role (overrides 'required-document-state-default')",
+            "description" : "Array of objects that link a document state to a set of required fields, with the addition of a user role (overrides 'required_document_state_default')",
             
             "items": {
 
@@ -60,14 +60,14 @@
 
                         "type" : "array",
 
-                        "description" : "Array of schema fields that are required for a given document-state and user-role.",
+                        "description" : "Array of schema fields that are required for a given document_state and user_role.",
 
-                        "items" : { "$ref" : "/core/schema-field.1" }
+                        "items" : { "$ref" : "/core/schema_field.1" }
                     },
 
-                    "document-state" : { "$ref" : "/core/document-state.1" },
+                    "document_state" : { "$ref" : "/core/document_state.1" },
 
-                    "user-role" : { "$ref" : "/core/user-role.1" }
+                    "user_role" : { "$ref" : "/core/user_role.1" }
                 }
             }
         }

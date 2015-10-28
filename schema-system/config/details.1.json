@@ -7,6 +7,8 @@
 
     "additionalProperties" : false,
 
+    "required" : [ "sections" ],
+
     "properties": {
 
         "sections" : {
@@ -39,7 +41,7 @@
 
                         "description" : "Ordered list of fields contained in this section.",
                         
-                        "items" : { "$ref" : "/core/schema-field.1" }
+                        "items" : { "$ref" : "/core/schema_field.1" }
                     }
                 }
             }

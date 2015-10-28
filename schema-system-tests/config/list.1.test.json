@@ -1,6 +1,6 @@
 {
 
-    "per-page-default" : 10,
+    "per_page_default" : 10,
 
     "fields" : [
 
@@ -10,7 +10,7 @@
 
             "size" : "SMALL",
 
-            "link-to-details" : true
+            "link_to_details" : true
 
         },
 

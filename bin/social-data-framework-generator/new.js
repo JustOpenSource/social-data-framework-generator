@@ -19,16 +19,17 @@ BUILD DIRECTORY OUTPUT STRUCTURE
 
 var DIR_STRUCTURE = {
     "config" : [],
-    "lang" : []
+    "lang" : [],
+    "data" : null
 };
 
 //set the config stubs to generate the new package
-addConfigs('details-edit');
+addConfigs('details_edit');
 addConfigs('details');
 addConfigs('infographics');
-addConfigs('list-filters');
+addConfigs('list_filters');
 addConfigs('list');
-addConfigs('public-api');
+addConfigs('public_api');
 addConfigs('system');
 
 var SCHEMA_STUB = {
@@ -60,7 +61,7 @@ function main(){
 
     console.log('');
     console.log('Social Data Framework Generator - Create New Project');
-    console.log('--------------------------------------');
+    console.log('--------------------------------------\n');
 
 
     /*********************
@@ -71,29 +72,7 @@ function main(){
 
         makeContents(result, DIR_STRUCTURE);
 
-        console.log('');
-        console.log('No fields (other than directoyr nam');
-        console.log('');
-
-        if(!schemaNameExists()){
-
-            console.log('Schema "' + result[SCHEMA_NAME] + '"" does not exist');
-            console.log('');
-            console.log('Creating a unique schema.');
-            console.log('');
-            console.log('Using an existing schema is sometimes the best choice.');
-            console.log('For more information about creating a schema, type:');
-            console.log('$ sdfg-help schemas');
-
-        } else {
-            
-            console.log('Schema "' + result[SCHEMA_NAME] + '"" exists');
-            console.log('To see the schema, type:');
-            console.log('$ sdfg-schemas THE_SCHEMA_NAME');
-        
-        }
-
-        console.log('');
+        console.log('SUCCESS: Project package is available at ' + result[PROJECT_DIR] + '\n');
     });
 
 }
@@ -133,7 +112,7 @@ function makeContents(result, dirs){
 
     mkdirp.sync(currRoot);
 
-    SCHEMA_STUB['id'] = result[SCHEMA_NAME] + ".1";
+    SCHEMA_STUB['id'] = 'http://sdfg/' + result[SCHEMA_NAME] + ".1";
     SCHEMA_STUB['description'] = result[SCHEMA_DESC];
 
     fs.writeFileSync(currRoot + '/schema.json', stringify(SCHEMA_STUB), 'utf8');

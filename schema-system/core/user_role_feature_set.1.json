@@ -1,6 +1,6 @@
 {
 
-    "id": "/core/user-role-feature-set.1",
+    "id": "/core/user_role_feature_set.1",
 
     "type": "object",
 
@@ -10,25 +10,25 @@
     
     "properties": {
         
-        "role" : { "$ref" : "user-role.1" },
+        "role" : { "$ref" : "user_role.1" },
 
-        "features-generic" : {
+        "features_generic" : {
 
             "type" : "array",
 
             "description" : "An array of features that apply to this user role.",
             
-            "items" : { "$ref" : "/core/feature-generic.1" }
+            "items" : { "$ref" : "/core/feature_generic.1" }
 
         },
 
-        "features-document-state" : {
+        "features_document_state" : {
 
             "type" : "array",
 
             "description" : "An array of features that apply to this user role.",
             
-            "items" :  { "$ref" : "/core/feature-document-state.1" }
+            "items" :  { "$ref" : "/core/feature_document_state.1" }
         
         }
     }
