@@ -7,6 +7,16 @@ var dirname = process.cwd();
 var Validator = require('jsonschema').Validator;
 var v = new Validator();
 
+
+/*********************
+MAKE SURE THAT THE PACKAGE NAME IS SET
+*/
+
+if(!argv.d){
+    console.log('\n-d is required (directory of sdfg config package.\n');
+    return;
+}
+
 /*********************
 RUN SYSTEM SCHEMA TESTS
 */
@@ -16,11 +26,13 @@ require(__dirname + '/../../utils/test_system_schemas')();
 var schemaJSON;
 
 function setSchema(name){
-    v.addSchema(require(__dirname + '/../../schema-system' + name), name);
+
+    //TODO: adjust this to bring in schemas as a package.  Will have to turn schemas dir into proper module. 
+    v.addSchema(require(__dirname + '/../../../social-data-framework-schemas' + name), name);
 }
 
 setSchema('/core/document_state.1');
-setSchema('/core/feature_document_state.1');
+setSchema('/core/feature_change_document_state.1');
 setSchema('/core/feature_generic.1');
 setSchema('/core/schema_field.1');
 setSchema('/core/user_role_feature_set.1');
@@ -59,15 +71,6 @@ console.log('\n\n');
 console.log('Social Data Framework Generator - Validate Schema');
 console.log('--------------------------------------\n');
 
-/*********************
-MAKE SURE THAT THE PACKAGE NAME IS SET
-*/
-
-if(!argv.d){
-    console.log('\n-d is required (directory of sdfg config package.\n');
-    return;
-}
-
 var schema = dirname + '/' + argv.d + '/schema.json';
 
 /*********************
@@ -96,10 +99,9 @@ try {
 VALIDATE SCHEMA
 */
 
-
 console.log('validating schema as schema: ' + schema + '\n');
 
-var validateSchema = jsen(require(__dirname + "/../../utils/schema.4.json"));
+var validateSchema = jsen(require(__dirname + "/../../../social-data-framework-schemas/core/schema.4.json"));
 
 var isSchemaValid = validateSchema(schemaJSON);
 

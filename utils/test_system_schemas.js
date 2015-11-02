@@ -3,7 +3,7 @@ var v = new Validator();
 var _ = require('underscore');
 
 console.log('\n\n');
-console.log('Social Data Framework Generator - Validate System Schemas');
+console.log('Social Data Framework Generator - Validate System Schemas 1');
 console.log('--------------------------------------\n');
 
 /*
@@ -14,11 +14,11 @@ var SCHEMAS = [
 */
 
 function setSchema(name){
-    v.addSchema(require(__dirname + '/../schema-system' + name), name);
+    v.addSchema(require(__dirname + '/../../social-data-framework-schemas' + name), name);
 }
 
 setSchema('/core/document_state.1');
-setSchema('/core/feature_document_state.1');
+setSchema('/core/feature_change_document_state.1');
 setSchema('/core/feature_generic.1');
 setSchema('/core/schema_field.1');
 setSchema('/core/user_role_feature_set.1');
@@ -35,7 +35,9 @@ setSchema('/config/system.1');
 
 function testSchema(schema){
 
-    var validation_results = v.validate(require(__dirname + '/../schema-system-tests' + schema + '.test'), v.schemas[schema]);
+    console.log(schema);
+
+    var validation_results = v.validate(require(__dirname + '/../../social-data-framework-schemas/test' + schema + '.test'), v.schemas[schema]);
 
     var errors = (validation_results.errors.length !== 0);
 
@@ -58,8 +60,6 @@ function testSchema(schema){
 
 function main(){
 
-    console.log('');
-
     testSchema('/config/system.1');
     testSchema('/config/details_edit.1');
     testSchema('/config/details.1');
@@ -69,7 +69,7 @@ function main(){
     testSchema('/config/infographics.1');
 
     testSchema('/core/document_state.1');
-    testSchema('/core/feature_document_state.1');
+    testSchema('/core/feature_change_document_state.1');
     testSchema('/core/feature_generic.1');
     testSchema('/core/schema_field.1');
     testSchema('/core/user_role_feature_set.1');

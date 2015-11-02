@@ -89,7 +89,7 @@ function addConfigs(schema){
 
         "name" : schema,
         "type" : "json",
-        "content" : require(__dirname + "/../../schema-system-config-stubs/" + schema)
+        "content" : require(__dirname + "/../../../social-data-framework-schemas/config-stubs/" + schema + '.1')
     
     });
 }
