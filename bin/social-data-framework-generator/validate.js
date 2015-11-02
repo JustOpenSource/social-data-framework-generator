@@ -3,6 +3,7 @@
 var jsen = require('jsen');
 var _ = require('underscore');
 var argv = require('minimist')(process.argv.slice(2));
+var schemas = require('social-data-framework-schemas');
 var dirname = process.cwd();
 var Validator = require('jsonschema').Validator;
 var v = new Validator();
@@ -12,8 +13,8 @@ var v = new Validator();
 MAKE SURE THAT THE PACKAGE NAME IS SET
 */
 
-if(!argv.d){
-    console.log('\n-d is required (directory of sdfg config package.\n');
+if(!argv.s){
+    console.log('\n-s is required (name of sdf config package)\n');
     return;
 }
 
@@ -25,27 +26,26 @@ require(__dirname + '/../../utils/test_system_schemas')();
 
 var schemaJSON;
 
-function setSchema(name){
+function setSchema(dir, schema){
 
-    //TODO: adjust this to bring in schemas as a package.  Will have to turn schemas dir into proper module. 
-    v.addSchema(require(__dirname + '/../../../social-data-framework-schemas' + name), name);
+    v.addSchema(schemas[dir][schema], dir + '/' + schema);
 }
 
-setSchema('/core/document_state.1');
-setSchema('/core/feature_change_document_state.1');
-setSchema('/core/feature_generic.1');
-setSchema('/core/schema_field.1');
-setSchema('/core/user_role_feature_set.1');
-setSchema('/core/user_role.1');
-setSchema('/core/user.1');
+setSchema('core', 'document_state.1');
+setSchema('core', 'feature_change_document_state.1');
+setSchema('core', 'feature_generic.1');
+setSchema('core', 'schema_field.1');
+setSchema('core', 'user_role_feature_set.1');
+setSchema('core', 'user_role.1');
+setSchema('core', 'user.1');
 
-setSchema('/config/details_edit.1');
-setSchema('/config/details.1');
-setSchema('/config/infographics.1');
-setSchema('/config/list_filters.1');
-setSchema('/config/list.1');
-setSchema('/config/public_api.1');
-setSchema('/config/system.1');
+setSchema('config', 'details_edit.1');
+setSchema('config', 'details.1');
+setSchema('config', 'infographics.1');
+setSchema('config', 'list_filters.1');
+setSchema('config', 'list.1');
+setSchema('config', 'public_api.1');
+setSchema('config', 'system.1');
 
 /*********************
 TEST FOR HELP
@@ -71,7 +71,7 @@ console.log('\n\n');
 console.log('Social Data Framework Generator - Validate Schema');
 console.log('--------------------------------------\n');
 
-var schema = dirname + '/' + argv.d + '/schema.json';
+var schema = dirname + '/' + argv.s + '/schema.json';
 
 /*********************
 VALIDATE JSON
@@ -101,7 +101,7 @@ VALIDATE SCHEMA
 
 console.log('validating schema as schema: ' + schema + '\n');
 
-var validateSchema = jsen(require(__dirname + "/../../../social-data-framework-schemas/core/schema.4.json"));
+var validateSchema = jsen(schemas['core']['schema.4']);
 
 var isSchemaValid = validateSchema(schemaJSON);
 
@@ -125,9 +125,11 @@ VALIDATE CONFIGS
 
 var schemaConfigErrors = [];
 
-function validateConfig(schema){
+function validateConfig(dir, schema){
 
-    schemaDir = dirname + '/' + argv.d + '/' + schema;
+    schema = dir + '/' + schema;
+
+    schemaDir = dirname + '/' + argv.s + '/' + schema;
 
     console.log('validating config ' + schemaDir + '\n');
 
@@ -147,7 +149,7 @@ function validateConfig(schema){
 
     }
 
-    var validation_results = v.validate(schemaJSON, v.schemas['/' + schema + '.1']);
+    var validation_results = v.validate(schemaJSON, v.schemas['/' + schema]);
 
     if(validation_results.errors.length === 0){
 
@@ -171,12 +173,12 @@ function validateConfig(schema){
     }
 }
 
-validateConfig('config/details_edit');
-validateConfig('config/details');
-validateConfig('config/infographics');
-validateConfig('config/list_filters');
-validateConfig('config/list');
-validateConfig('config/public_api');
-validateConfig('config/system');
+validateConfig('config', 'details_edit.1');
+validateConfig('config', 'details.1');
+validateConfig('config', 'infographics.1');
+validateConfig('config', 'list_filters.1');
+validateConfig('config', 'list.1');
+validateConfig('config', 'public_api.1');
+validateConfig('config', 'system.1');
 
 console.log('\n...\n\nSUCCESS: All configs are valid\n');

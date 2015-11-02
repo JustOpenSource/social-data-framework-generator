@@ -9,7 +9,7 @@ var fs = require('fs');
 var DEFAULT_SAMPLE_SIZE = 1000;
 
 if(!argv.d){
-    console.log('\n-d is required (directory of sdfg config package.\n');
+    console.log('\n-s is required (directory of sdfg config package.\n');
     return;
 }
 

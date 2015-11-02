@@ -4,6 +4,7 @@ var _ = require('underscore');
 var fs = require('fs');
 var mkdirp = require('mkdirp');
 var prompt = require('prompt');
+var schemas = require('social-data-framework-schemas');
 
 var argv = require('minimist')(process.argv.slice(2));
 var dirname = process.cwd();
@@ -24,13 +25,13 @@ var DIR_STRUCTURE = {
 };
 
 //set the config stubs to generate the new package
-addConfigs('details_edit');
-addConfigs('details');
-addConfigs('infographics');
-addConfigs('list_filters');
-addConfigs('list');
-addConfigs('public_api');
-addConfigs('system');
+addConfigs('details_edit.1');
+addConfigs('details.1');
+addConfigs('infographics.1');
+addConfigs('list_filters.1');
+addConfigs('list.1');
+addConfigs('public_api.1');
+addConfigs('system.1');
 
 var SCHEMA_STUB = {
     "id" : null,
@@ -55,6 +56,13 @@ function main(){
         return;
     }
 
+    if(!argv.s){
+        console.log('-s (name of project directory) is required.  Must consist of lowercase letters and underscores (my_project_name)');
+        return;
+    }
+
+    var newSchema = argv.s;
+
     /*********************
     TITLE
     */
@@ -68,12 +76,9 @@ function main(){
     GET INPUT
     */
 
-    prompt.get([PROJECT_DIR, SCHEMA_NAME, USER_NAME, SCHEMA_DESC], function (err, result) {
+    makeContents(newSchema, DIR_STRUCTURE);
 
-        makeContents(result, DIR_STRUCTURE);
-
-        console.log('SUCCESS: Project package is available at ' + result[PROJECT_DIR] + '\n');
-    });
+    console.log('SUCCESS: Project package is available at ' + newSchema + '\n');
 
 }
 
@@ -89,7 +94,7 @@ function addConfigs(schema){
 
         "name" : schema,
         "type" : "json",
-        "content" : require(__dirname + "/../../../social-data-framework-schemas/config-stubs/" + schema + '.1')
+        "content" : schemas['config-stubs'][schema]
     
     });
 }
@@ -106,14 +111,13 @@ function schemaNameExists(){
 }
 
 //TODO: Make this less noisey/nested, break it out into functions
-function makeContents(result, dirs){
+function makeContents(newSchema, dirs){
 
-    var currRoot = dirname + '/' +  result[PROJECT_DIR];
+    var currRoot = dirname + '/' +  newSchema;
 
     mkdirp.sync(currRoot);
 
-    SCHEMA_STUB['id'] = 'http://sdfg/' + result[SCHEMA_NAME] + ".1";
-    SCHEMA_STUB['description'] = result[SCHEMA_DESC];
+    SCHEMA_STUB['id'] = 'http://sdfg/' + newSchema + ".1";
 
     fs.writeFileSync(currRoot + '/schema.json', stringify(SCHEMA_STUB), 'utf8');
 

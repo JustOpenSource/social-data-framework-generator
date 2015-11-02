@@ -22,7 +22,8 @@
         "jsonlint" : "1.6.2",
         "jsen" : "0.6.0",
         "json-from-schema" : "1.10.0",
-        "social-data-framework" : "0.0.1"
+        "social-data-framework" : "0.0.1",
+        "social-data-framework-schemas" : "0.0.1"
 
     },
 
