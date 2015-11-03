@@ -30,7 +30,7 @@ addConfigs('details.1');
 addConfigs('infographics.1');
 addConfigs('list_filters.1');
 addConfigs('list.1');
-addConfigs('public_api.1');
+addConfigs('api_public.1');
 addConfigs('system.1');
 
 var SCHEMA_STUB = {

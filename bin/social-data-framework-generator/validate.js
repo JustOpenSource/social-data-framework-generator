@@ -44,7 +44,7 @@ setSchema('config', 'details.1');
 setSchema('config', 'infographics.1');
 setSchema('config', 'list_filters.1');
 setSchema('config', 'list.1');
-setSchema('config', 'public_api.1');
+setSchema('config', 'api_public.1');
 setSchema('config', 'system.1');
 
 /*********************
@@ -178,7 +178,7 @@ validateConfig('config', 'details.1');
 validateConfig('config', 'infographics.1');
 validateConfig('config', 'list_filters.1');
 validateConfig('config', 'list.1');
-validateConfig('config', 'public_api.1');
+validateConfig('config', 'api_public.1');
 validateConfig('config', 'system.1');
 
 console.log('\n...\n\nSUCCESS: All configs are valid\n');

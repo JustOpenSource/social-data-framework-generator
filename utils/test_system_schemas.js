@@ -33,7 +33,7 @@ setSchema('config', 'details.1');
 setSchema('config', 'infographics.1');
 setSchema('config', 'list_filters.1');
 setSchema('config', 'list.1');
-setSchema('config', 'public_api.1');
+setSchema('config', 'api_public.1');
 setSchema('config', 'system.1');
 
 function testSchema(dir, schema){
@@ -68,7 +68,7 @@ function main(){
     testSchema('config', 'details.1');
     testSchema('config', 'list_filters.1');
     testSchema('config', 'list.1');
-    testSchema('config', 'public_api.1');
+    testSchema('config', 'api_public.1');
     testSchema('config', 'infographics.1');
 
     testSchema('core', 'document_state.1');
